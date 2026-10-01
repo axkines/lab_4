@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа №4 — Варианты 2, 8, 16</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Лабораторная работа №4</h1>
+    <p class="subtitle">HTML + JavaScript — формы и клиентская валидация</p>
+ 
+    <nav class="tabs">
+        <button class="tab active" data-target="variant2">Вариант 2</button>
+        <button class="tab" data-target="variant8">Вариант 8</button>
+        <button class="tab" data-target="variant16">Вариант 16</button>
+    </nav>
+ 
+    <!-- Вариант 2 -->
+    <section id="variant2" class="variant active">
+        <h2>Вариант 2 — Форма обратной связи</h2>
+        <p>Имя, тема сообщения, текст сообщения. Имя и сообщение обязательны.</p>
+        <form id="form2" novalidate>
+            <label for="name2">Имя</label>
+            <input id="name2" type="text" placeholder="Введите имя">
+            <small class="error" id="error-name2"></small>
+ 
+            <label for="topic2">Тема сообщения</label>
+            <select id="topic2">
+                <option value="">Выберите тему</option>
+                <option value="Вопрос по учебе">Вопрос по учебе</option>
+                <option value="Техническая проблема">Техническая проблема</option>
+                <option value="Предложение">Предложение</option>
+                <option value="Другое">Другое</option>
+            </select>
+            <small class="error" id="error-topic2"></small>
+ 
+            <label for="message2">Текст сообщения</label>
+            <textarea id="message2" maxlength="500" rows="6" placeholder="Напишите сообщение..."></textarea>
+            <div class="counter"><span id="counter2">0</span>/500</div>
+            <small class="error" id="error-message2"></small>
+ 
+            <button type="submit">Отправить сообщение</button>
+            <p class="result" id="result2"></p>
+        </form>
+    </section>
+ 
+    <!-- Вариант 8 -->
+    <section id="variant8" class="variant">
+        <h2>Вариант 8 — Форма заказа товара</h2>
+        <p>Товар, количество, способ доставки и дополнительные услуги. Количество должно быть больше 0.</p>
+        <form id="form8" novalidate>
+            <label for="product8">Товар</label>
+            <select id="product8">
+                <option value="" data-price="0">Выберите товар</option>
+                <option value="Игровая мышь" data-price="15000">Игровая мышь — 15 000 ₸</option>
+                <option value="Клавиатура" data-price="25000">Клавиатура — 25 000 ₸</option>
+                <option value="Наушники" data-price="30000">Наушники — 30 000 ₸</option>
+                <option value="Геймпад" data-price="22000">Геймпад — 22 000 ₸</option>
+            </select>
+            <small class="error" id="error-product8"></small>
+ 
+            <label for="quantity8">Количество</label>
+            <input id="quantity8" type="number" min="1" step="1" value="1">
+            <small class="error" id="error-quantity8"></small>
+ 
+            <fieldset>
+                <legend>Способ доставки</legend>
+                <label class="option"><input type="radio" name="delivery8" value="Самовывоз"> Самовывоз — 0 ₸</label>
+                <label class="option"><input type="radio" name="delivery8" value="Курьер" data-price="2000"> Курьер — 2 000 ₸</label>
+                <label class="option"><input type="radio" name="delivery8" value="Почта" data-price="3500"> Почта — 3 500 ₸</label>
+            </fieldset>
+            <small class="error" id="error-delivery8"></small>
+ 
+            <fieldset>
+                <legend>Дополнительные услуги</legend>
+                <label class="option"><input type="checkbox" name="service8" value="Подарочная упаковка" data-price="1000"> Подарочная упаковка — 1 000 ₸</label>
+                <label class="option"><input type="checkbox" name="service8" value="Расширенная гарантия" data-price="5000"> Расширенная гарантия — 5 000 ₸</label>
+                <label class="option"><input type="checkbox" name="service8" value="Проверка товара" data-price="1500"> Проверка товара — 1 500 ₸</label>
+            </fieldset>
+ 
+            <div class="price">Текущая стоимость: <strong id="total8">0 ₸</strong></div>
+            <button type="submit">Оформить заказ</button>
+            <p class="result" id="result8"></p>
+        </form>
+    </section>
+ 
+    <!-- Вариант 16 -->
+    <section id="variant16" class="variant">
+        <h2>Вариант 16 — Многоэлементная форма интернет-магазина</h2>
+        <p>Контактные данные, доставка, оплата и согласия. Ошибки выводятся рядом с соответствующими полями.</p>
+        <form id="form16" novalidate>
+            <h3>1. Контактные данные</h3>
+            <label for="name16">Имя</label>
+            <input id="name16" type="text" placeholder="Введите имя">
+            <small class="error" id="error-name16"></small>
+ 
+            <label for="email16">E-mail</label>
+            <input id="email16" type="email" placeholder="example@mail.com">
+            <small class="error" id="error-email16"></small>
+ 
+            <label for="phone16">Телефон</label>
+            <input id="phone16" type="tel" placeholder="+7 777 123 45 67">
+            <small class="error" id="error-phone16"></small>
+ 
+            <h3>2. Доставка</h3>
+            <label for="address16">Адрес доставки</label>
+            <input id="address16" type="text" placeholder="Город, улица, дом, квартира">
+            <small class="error" id="error-address16"></small>
+ 
+            <label for="delivery16">Способ доставки</label>
+            <select id="delivery16">
+                <option value="">Выберите способ</option>
+                <option value="Курьер">Курьер</option>
+                <option value="Пункт выдачи">Пункт выдачи</option>
+                <option value="Почта">Почта</option>
+            </select>
+            <small class="error" id="error-delivery16"></small>
+ 
+            <h3>3. Оплата</h3>
+            <label for="payment16">Способ оплаты</label>
+            <select id="payment16">
+                <option value="">Выберите способ</option>
+                <option value="Банковская карта">Банковская карта</option>
+                <option value="Kaspi">Kaspi</option>
+                <option value="При получении">При получении</option>
+            </select>
+            <small class="error" id="error-payment16"></small>
+ 
+            <h3>4. Согласия</h3>
+            <label class="option"><input id="agree16" type="checkbox"> Я согласен с условиями заказа</label>
+            <small class="error" id="error-agree16"></small>
+ 
+            <label class="option"><input id="personal16" type="checkbox"> Я согласен на обработку персональных данных</label>
+            <small class="error" id="error-personal16"></small>
+ 
+            <button type="submit">Подтвердить заказ</button>
+            <p class="result" id="result16"></p>
+        </form>
+    </section>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
